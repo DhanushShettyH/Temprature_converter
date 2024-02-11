@@ -11,7 +11,7 @@
 		content="ie=edge">
 
 <!-- Title -->
-<title>PWA Tutorial</title>
+<title>PWA</title>
 
 <!-- Meta Tags required for
 	Progressive Web App -->
@@ -24,18 +24,28 @@
 <!-- Manifest File link -->
 <link rel="manifest"
 		href="manifest.json">
+		<link rel="stylesheet" href="converter.css">
 </head>
 
 <body>
-<h1 style="color: green;">
-	GeeksforGeeks</h1>
-
-
-<p>
-	This is a simple tutorial for
-	creating a PWA application.
-</p>
-
+	<form id="converter">
+		<label for="input-temp">temperature</label>
+		<input type="text" id="input-temp" name="input-temp" value="20" />
+		<label for="input-unit">from</label>
+		<select id="input-unit" name="input-unit">
+		  <option value="c" selected>Celsius</option>
+		  <option value="f">Fahrenheit</option>
+		  <option value="k">Kelvin</option>
+		</select>
+		<label for="output-unit">to</label>
+		<select id="output-unit" name="output-unit">
+		  <option value="c">Celsius</option>
+		  <option value="f" selected>Fahrenheit</option>
+		  <option value="k">Kelvin</option>
+		</select>
+		<output name="output-temp" id="output-temp" for="input-temp input-unit output-unit">68 F</output>
+	  </form>
+	  <script src="converter.js"></script>
 
 
 <script>
@@ -49,7 +59,7 @@
         try {
           await navigator
                 .serviceWorker
-                .register('serviceworker.js');
+                .register('sw.js');
         }
         catch (e) {
           console.log('SW registration failed');
